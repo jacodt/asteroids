@@ -4,6 +4,7 @@
 import pygame
 from constants import *
 from player import Player
+from asteroid import Asteroid
 
 def main():
     print("Starting asteroids!")
@@ -20,9 +21,13 @@ def main():
 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
 
     updatable.add(player)
+    updatable.add(Asteroid)
     drawable.add(player)
+    drawable.add(Asteroid)
+    asteroids.add(Asteroid)
 
     while True:
         for event in pygame.event.get():
