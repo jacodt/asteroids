@@ -29,7 +29,7 @@ def main():
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = updatable
     asteroid_field = AsteroidField()
-    Shot.containers = (updatable, drawable)
+    Shot.containers = (shots, updatable, drawable)
 
     Player.containers = (updatable, drawable)
 
@@ -55,6 +55,9 @@ def main():
             if a.check_collision(player):
                 print("Game over!")
                 sys.exit()
-
+            for shot in shots:
+                if a.check_collision(shot):
+                    a.split()
+            
 if __name__ == "__main__":
     main()
